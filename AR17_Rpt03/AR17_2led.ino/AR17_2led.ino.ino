@@ -1,0 +1,42 @@
+/*
+ 예제 4.1
+ LED 점멸
+*/
+int number= 1;
+boolean flag = true;
+const int ledA   =  3;
+const int ledB   =  5;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(ledA, OUTPUT);
+  pinMode(ledB, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(ledA,HIGH);
+  digitalWrite(ledB,LOW);
+  delay(100*number);
+  digitalWrite(ledA,LOW);
+  digitalWrite(ledB,HIGH);
+  delay(100*number);
+
+  if (flag)
+  {
+    number++;
+  }
+  else
+  {
+    number--;
+  }
+  if(number>=20)
+  {
+    flag = false;
+  }
+  else if (number == 1)
+  {
+    flag = true;
+  }
+}
